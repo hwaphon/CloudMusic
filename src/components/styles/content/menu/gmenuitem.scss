@@ -1,0 +1,23 @@
+.gmenu-item {
+  padding: 0 16px;
+  height: 30px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  cursor: pointer;
+  line-height: 30px;
+  color: #050608;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-weight: lighter;
+}
+
+.selected {
+  background-color: #e6e7eb;
+  border-left: 3px solid #C20C0C;
+  transition: all .2s;
+}
+
+img {
+  margin-right: 6px;
+}
