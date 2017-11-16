@@ -1,0 +1,96 @@
+img {
+  height: 188px;
+  width: 480px;
+  visibility: hidden;
+}
+
+img.selected {
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  visibility: visible;
+  transform: translateX(-50%) translateZ(30px);
+  transition: all .4s;
+}
+
+
+img.after {
+  transition: all .1s;
+  left: 0;
+  visibility: visible;
+  position: absolute;
+}
+
+img.before {
+  visibility: visible;
+  right: 0;
+  position: absolute;
+  transition: all .1s;
+}
+
+.gcarousel {
+  height: 210px;
+  width: 960px;
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  perspective-origin: bottom center;
+}
+
+.gcarousel-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 22px;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(#6e6e6e, .3);
+}
+
+i {
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: lighten(#6e6e6e, .5);
+  cursor: pointer;
+}
+
+i:hover {
+  color: rgba(#FFF, .5);
+  transition: color .2s;
+}
+
+i:first-child {
+  left: 12px;
+}
+
+i:last-child {
+  right: 12px;
+}
+
+.gcarousel-router {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+span {
+  width: 18px;
+  height: 3px;
+  background-color: #c4c4c4;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+span.selected {
+  background-color: #C20C0C;
+  transition: background-color .2s;
+}

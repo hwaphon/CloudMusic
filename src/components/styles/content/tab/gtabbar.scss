@@ -1,0 +1,24 @@
+.gtabbar {
+  height: 42px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+span {
+  margin-right: 36px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #444;
+  font-weight: lighter;
+  line-height: 42px;
+  width: 64px;
+  text-align: center;
+}
+
+span.selected {
+  border-bottom: 1px solid #C20C0C;
+  color: #C20C0C;
+  transition: all .2s;
+}

@@ -1,3 +1,4 @@
 export default {
-  'CLICK': 'onClick'
+  'CLICK': 'onClick',
+  'CHANGE': 'onChange'
 }

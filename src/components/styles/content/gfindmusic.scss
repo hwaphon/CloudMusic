@@ -1,0 +1,17 @@
+.gcarousel {
+  margin: 32px auto;
+  margin-bottom: 0px;
+  padding-left: 46px;
+}
+
+.gsong-layout-container {
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.gsong-layout:nth-child(n+6) {
+  margin-top: 24px;
+}
+

@@ -1,4 +1,10 @@
 .gcontent {
-  flex: 1 1 auto;
-  background-color: #FFFFFF;
+  overflow-y: scroll;
+  flex: 1 1 0px;
+  min-width: 1096px;
+  background-color: #FAFAFA;
+  padding: 0 30px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
