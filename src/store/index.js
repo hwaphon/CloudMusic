@@ -7,7 +7,11 @@ Vue.use(Vuex)
 
 const state = {
   menubar: Menu.FINDMUSIC.name,
-  tabbar: Tab.RECOMMEND
+  tabbar: Tab.RECOMMEND,
+  user: {
+    avatarUrl: 'http://ozg83iln2.bkt.clouddn.com/usered.png',
+    nickname: '未登录'
+  }
 }
 
 const mutations = {
@@ -16,6 +20,9 @@ const mutations = {
   },
   UPDATERECOMMED (state, text) {
     state.tabbar = text
+  },
+  UPDATEUSER (state, user) {
+    state.user = user
   }
 }
 
@@ -25,6 +32,9 @@ const actions = {
   },
   updateTabbar (context, text) {
     context.commit('UPDATERECOMMED', text)
+  },
+  updateUser (context, user) {
+    context.commit('UPDATEUSER', user)
   }
 }
 

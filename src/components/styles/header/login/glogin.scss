@@ -1,6 +1,7 @@
 .glogin {
   position: fixed;
   height: 500px;
+  overflow: hidden;
   width: 350px;
   top: 50%;
   left: 50%;
@@ -9,22 +10,67 @@
   box-shadow: 0px 0px 10px 6px rgba(#000, .2);
   z-index: 9999;
   border-radius: 4px;
+}
+
+i.glogin-close {
+  position: absolute;
+  color: #dcdcdc;
+  font-size: 16px;
+  font-weight: lighter;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+i.glogin-back {
+  position: absolute;
+  color: #dcdcdc;
+  font-size: 16px;
+  font-weight: lighter;
+  top: 12px;
+  left: 12px;
+  cursor: pointer;
+}
+
+.glogin-init, .glogin-phone {
+  width: 350px;
+  height: 500px;
   display: flex;
   flex-flow: column;
   align-items: center;
+  position: absolute;
+}
+
+.active {
+  transition: all .3s;
+  left: 0;
+  top: 0;
+}
+
+.glogin-init.hidden {
+  transition: all .3s;
+  left: -350px;
+  opacity: 0;
+}
+
+.glogin-phone.hidden {
+  transition: all .3s;
+  right: -350px;
+  opacity: 0;
 }
 
 .glogin-logo {
   margin-top: 84px;
 }
 
-.glogin-control {
+.glogin-control, .glogin-input-container {
   margin-top: 36px;
   display: flex;
   flex-flow: column;
 }
 
-button {
+.glogin-control-button {
   width: 260px;
   height: 36px;
   line-height: 36px;
@@ -37,7 +83,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.glogin-control-button:hover {
   background-color: #F2B0B1;
   transition: all .2s;
 }
@@ -70,3 +116,88 @@ span {
   padding: 0 4px;
   background-color: #FAFAFA;
 }
+
+.glogin-input-container {
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  background-clip: padding-box;
+  position: relative;
+}
+.glogin-input {
+  width: 260px;
+  height: 36px;
+  outline: none;
+  padding: 0 42px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  border: none;
+}
+
+.glogin-input:first-of-type {
+  border-bottom: 1px solid #dcdcdc;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.glogin-input:last-of-type {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.glogin-icon {
+  font-size: 18px;
+  color: #dcdcdc;
+  position: absolute;
+  left: 10px;
+}
+
+.glogin-phone-icon {
+  top: 9px;
+}
+
+.glogin-password-icon {
+  top: 45px;
+}
+
+.glogin-button {
+  margin-top: 24px;
+  height: 36px;
+  width: 260px;
+  outline: none;
+  border: none;
+  background-color: #ea4748;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #FFF;
+  transition: all .2s;
+}
+
+.glogin-button:hover {
+  background-color: darken(#ea4748, 15%);
+  transition: all .2s;
+}
+
+::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #dcdcdc;
+  font-weight: lighter;
+}
+:-ms-input-placeholder {
+  font-size: 14px;
+  color: #dcdcdc;
+  font-weight: lighter;
+}
+
+:-moz-placeholder {
+  font-size: 14px;
+  color: #dcdcdc;
+  font-weight: lighter;
+}
+
+::-moz-placeholder {
+  font-size: 14px;
+  color: #dcdcdc;
+  font-weight: lighter;
+}
+

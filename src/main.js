@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 import 'font-awesome/css/font-awesome.css'
+import _ from 'underscore'
+import axios from 'axios'
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 

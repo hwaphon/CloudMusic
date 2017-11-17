@@ -1,0 +1,17 @@
+.gmodel {
+  width: 272px;
+  position: absolute;
+}
+
+.gmodel::after {
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-width: 12px 8px;
+  border-style: solid;
+  border-color: transparent transparent #FAFAFA transparent;
+  position: absolute;
+  top: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+}

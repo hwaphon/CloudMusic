@@ -1,4 +1,5 @@
 export default {
   'CLICK': 'onClick',
-  'CHANGE': 'onChange'
+  'CHANGE': 'onChange',
+  'CLOSE': 'onClose'
 }

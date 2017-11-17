@@ -15,6 +15,7 @@
     import GCarousel from './carousel/GCarousel.vue'
     import GNav from './nav/GNav.vue'
     import GSongLayout from './layout/GSongLayout.vue'
+    import Api from '../../../const/Api'
     export default {
       components: {
         GTabbar,
@@ -24,30 +25,30 @@
       },
       data () {
         return {
-          selected: 1,
-          imglist: [
-            { src: 'http://p1.music.126.net/gjKyr2a_9WJ_HC8G1Vm1aA==/19074327719103255.jpg',
-              des: 'Item 1',
-              id: 1
-            },
-            {
-              src: 'http://p1.music.126.net/ggtUdi-FGrU9oaxrB1Qf7Q==/18786255674284900.jpg',
-              des: 'Item 2',
-              id: 2
-            },
-            {
-              src: 'http://p1.music.126.net/A0hYH8uPDqFBsM78rwsDMw==/19132601835361336.jpg',
-              des: 'Item 3',
-              id: 3
-            },
-            {
-              src: 'http://p1.music.126.net/vOE_Ks8N6SW1KYIv5oS9hA==/19077626253986537.jpg',
-              des: 'Item 4',
-              id: 4
-            }
-          ],
+          selected: 0,
+          imglist: [],
           recommend_song: '推荐歌单'
         }
+      },
+      created () {
+        let that = this
+        this.$http.get(Api.banner())
+          .then(function (response) {
+            if (response.data.code === 200) {
+              let { banners } = response.data
+              banners.forEach(function (item) {
+                that.imglist.push({
+                  src: item.pic,
+                  des: item.typeTitle,
+                  id: item.targetId
+                })
+              })
+              that.selected = that.imglist[0].id
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
     }
 </script>
