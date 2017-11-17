@@ -4,9 +4,9 @@
 
 在之前的步骤完成之后，运行以下命令即可预览本项目
 
-  git clone https://github.com/hwaphon/CloudMusic.git
-  cd CloudMusic && yarn
-  yarn dev
+    git clone https://github.com/hwaphon/CloudMusic.git
+    cd CloudMusic && yarn
+    yarn dev
 
 ## 2017.11.17 效果图
 
