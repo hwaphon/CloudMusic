@@ -70,7 +70,7 @@
           let that = this
           this.$http.get(Api.cellphone(this.phonenumber, this.password))
             .then(function (response) {
-              console.log(response.data.code)
+              console.log(response)
               if (response.data.code == 200) {
                 that.$store.dispatch('updateUser', response.data.profile)
                 that.$emit(Event.CLOSE, true)

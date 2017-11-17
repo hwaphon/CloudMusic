@@ -3,7 +3,8 @@ const NETWORK = 'http://localhost:4000'
 
 const APILIST = {
   CELLPHPNE: '/login/cellphone?',
-  BANNER: '/banner'
+  BANNER: '/banner',
+  DETAIL: '/user/detail?'
 }
 
 function params(uri, args) {
@@ -26,5 +27,8 @@ export default {
   },
   banner () {
     return NETWORK + APILIST.BANNER
+  },
+  detail (uid) {
+    return params(APILIST.DETAIL, { uid })
   }
 }
