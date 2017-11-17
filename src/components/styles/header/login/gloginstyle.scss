@@ -1,0 +1,32 @@
+.glogin-style {
+  width: 60px;
+  font-size: 12px;
+  font-weight: lighter;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.glogin-style-circle {
+  border: 1px solid #dcdcdc;
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.glogin-style-circle:hover {
+  background-color: rgba(#dcdcdc, .5);
+  transition: all .2s;
+}
+
+span {
+  text-align: center;
+  position: relative;
+  bottom: 8px;
+}

@@ -1,0 +1,61 @@
+.glogin-state {
+  position: absolute;
+  right: 196px;
+  height: 48px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  line-height: 48px;
+}
+
+.glogin-state-avatar {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+img {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+
+.glogin-state-nick {
+  cursor: pointer;
+  margin-left: 8px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
+  color: #eaebf0;
+  font-weight: lighter;
+}
+
+.glogin-state-nick::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 6px solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  right: -16px;
+  top: 21px;
+}
+
+.glogin-state-nickname {
+  font-size: 14px;
+}
+
+.login-enter, .login-leave-to {
+  opacity: 0;
+}
+
+.login-enter-active, .login-leave-active {
+  transition: all 1s;
+}
+
+.login-enter-to, .login-leave {
+  opacity: 1;
+}

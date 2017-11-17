@@ -4,24 +4,23 @@
       <img :src="logosrc" alt="cloud music logo">
       <h1>网易云音乐</h1>
     </div>
-
+    <div class="gheader-router">
+      <i class="fa fa-chevron-left" aria-hidden="true" @click="routerBefore"></i>
+      <i class="fa fa-chevron-right" aria-hidden="true" @click="routerAfter"></i>
+    </div>
+    <GSearch></GSearch>
+    <GLoginState></GLoginState>
     <div class="gheader-control">
       <img :src="themesrc" alt="theme img" @click="openTheme">
       <img :src="mailsrc" alt="mail img" @click="openMail">
       <img :src="settingsrc" alt="setting img" @click="openSettings">
     </div>
-
-    <div class="gheader-router">
-      <i class="fa fa-chevron-left" aria-hidden="true" @click="routerBefore"></i>
-      <i class="fa fa-chevron-right" aria-hidden="true" @click="routerAfter"></i>
-    </div>
-
-    <GSearch></GSearch>
   </div>
 </template>
 
 <script>
     import GSearch from './GSearch.vue'
+    import GLoginState from './login/GLoginState.vue'
     export default {
       data () {
         return {
@@ -44,7 +43,8 @@
         }
       },
       components: {
-        GSearch
+        GSearch,
+        GLoginState
       }
     }
 </script>

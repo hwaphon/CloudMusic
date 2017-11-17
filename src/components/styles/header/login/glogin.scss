@@ -1,0 +1,72 @@
+.glogin {
+  position: fixed;
+  height: 500px;
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #FAFAFA;
+  box-shadow: 0px 0px 10px 6px rgba(#000, .2);
+  z-index: 9999;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.glogin-logo {
+  margin-top: 84px;
+}
+
+.glogin-control {
+  margin-top: 36px;
+  display: flex;
+  flex-flow: column;
+}
+
+button {
+  width: 260px;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 10px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #C20C0C;
+  color: #C20C0C;
+  border-radius: 36px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #F2B0B1;
+  transition: all .2s;
+}
+
+span {
+  color: #444;
+}
+
+.glogin-others {
+  padding-top: 22px;
+  width: 256px;
+  border-top: 1px solid #dcdcdc;
+  margin-top: 98px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.glogin-others:after {
+  height: 24px;
+  content: '其他登录方式';
+  font-size: 12px;
+  font-weight: lighter;
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 4px;
+  background-color: #FAFAFA;
+}
