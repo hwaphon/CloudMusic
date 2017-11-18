@@ -68,15 +68,12 @@
         },
         login () {
           let that = this
-          this.$http.get(Api.cellphone(this.phonenumber, this.password))
-            .then(function (response) {
-              if (response.data.code == 200) {
-                that.$store.dispatch('updateUser', response.data.profile)
-                that.$emit(Event.CLOSE, true)
-              }
-            })
-            .catch(function (error) {
-            })
+          Api.cellphone({ phone: this.phonenumber, password: this.password}, function (response) {
+            if (response.data.code == 200) {
+              that.$store.dispatch('updateUser', response.data.profile)
+              that.$emit(Event.CLOSE, true)
+            }
+          })
         }
       }
     }

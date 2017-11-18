@@ -2,14 +2,14 @@
   <div class="gcarousel">
     <img
       v-for="(item, index) in imglist"
-      :src="item.src"
-      :alt="item.des"
-      :key="item.id"
-      :class="{'selected': item.id === value, 'before': before(index), 'after': after(index) }">
+      :src="item.pic"
+      :alt="item.typeTitle"
+      :key="item.targetId"
+      :class="{'selected': item.targetId === value, 'before': before(index), 'after': after(index) }">
     <div class="gcarousel-router">
       <span
         v-for="(item, index) in imglist"
-        :key="item.id"
+        :key="item.targetId"
         :class="{ 'selected': findIndexByValue(value) === index }"
         @mouseover="routerIndex(index)">
       </span>
@@ -54,14 +54,14 @@
             index += 1
           }
 
-          this.$emit('input', this.imglist[index].id)
+          this.$emit('input', this.imglist[index].targetId)
           this.timeId = setTimeout(this.start, this.time)
         },
 
         findIndexByValue (value) {
           let valueIndex
           this.imglist.map((item, index) => {
-            if (item.id === this.value) {
+            if (item.targetId === this.value) {
               valueIndex = index
             }
           })
@@ -100,7 +100,7 @@
         },
         routerIndex (index) {
           this.reset()
-          this.$emit('input', this.imglist[index].id)
+          this.$emit('input', this.imglist[index].targetId)
         }
       },
       created () {

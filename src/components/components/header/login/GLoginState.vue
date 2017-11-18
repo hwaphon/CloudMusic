@@ -66,13 +66,12 @@
           let that = this
           if (validate) {
             this.$store.dispatch('updateValidate', true)
-            this.$http.get(Api.detail(this.user.userId))
-              .then(function(response) {
-                if (response.data.code === 200) {
-                  let others = that.util.pick(response.data, 'level')
-                  that.$store.dispatch('updateUser', that.util.extend(response.data.profile, others))
-                }
-              })
+            Api.detail({ uid: this.user.userId }, function(response) {
+              if (response.data.code === 200) {
+                let others = that.util.pick(response.data, 'level')
+                that.$store.dispatch('updateUser', that.util.extend(response.data.profile, others))
+              }
+            })
           }
         }
       },

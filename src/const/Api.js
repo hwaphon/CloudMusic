@@ -1,10 +1,12 @@
 import _ from 'underscore'
+import axios from 'axios'
 const NETWORK = 'http://localhost:4000'
 
 const APILIST = {
   CELLPHPNE: '/login/cellphone?',
   BANNER: '/banner',
-  DETAIL: '/user/detail?'
+  DETAIL: '/user/detail?',
+  RECOMMENDRESOURCE: '/recommend/resource'
 }
 
 function params(uri, args) {
@@ -21,14 +23,27 @@ function params(uri, args) {
   return result
 }
 
+function request (url, resolve) {
+  axios.get(url)
+    .then(function (response) {
+      resolve(response)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
 export default {
-  cellphone (phone, password) {
-    return params(APILIST.CELLPHPNE, { phone, password })
+  cellphone (pm, callback) {
+    return request(params(APILIST.CELLPHPNE, pm), callback)
   },
-  banner () {
-    return NETWORK + APILIST.BANNER
+  banner (callback) {
+    return request(params(APILIST.BANNER), callback)
   },
-  detail (uid) {
-    return params(APILIST.DETAIL, { uid })
+  detail (pm, callback) {
+    return request(params(APILIST.DETAIL, pm), callback)
+  },
+  recommendResource (callback) {
+    return request(params(APILIST.RECOMMENDRESOURCE), callback)
   }
 }

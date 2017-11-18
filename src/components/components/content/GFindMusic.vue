@@ -1,7 +1,7 @@
 <template>
   <div class="gfind-music">
     <GTabbar></GTabbar>
-    <GCarousel :imglist="imglist" class="gcarousel" v-model="selected"></GCarousel>
+    <GCarousel :imglist="banners" class="gcarousel" v-model="selected"></GCarousel>
     <GNav :title="recommend_song">
       <div class="gsong-layout-container">
         <GSongLayout v-for="(item, index) in 10" :key="index" class="gsong-layout"></GSongLayout>
@@ -16,6 +16,7 @@
     import GNav from './nav/GNav.vue'
     import GSongLayout from './layout/GSongLayout.vue'
     import Api from '../../../const/Api'
+    import { mapState } from 'vuex'
     export default {
       components: {
         GTabbar,
@@ -26,29 +27,25 @@
       data () {
         return {
           selected: 0,
-          imglist: [],
           recommend_song: '推荐歌单'
         }
       },
+      computed: {
+        ...mapState([
+          'banners',
+          'user'
+        ])
+      },
       created () {
         let that = this
-        this.$http.get(Api.banner())
-          .then(function (response) {
-            if (response.data.code === 200) {
-              let { banners } = response.data
-              banners.forEach(function (item) {
-                that.imglist.push({
-                  src: item.pic,
-                  des: item.typeTitle,
-                  id: item.targetId
-                })
-              })
-              that.selected = that.imglist[0].id
-            }
-          })
-          .catch(function (error) {
-            console.log(error)
-          })
+        // 获取 banners 数据
+        Api.banner(function (response) {
+          if (response.data.code === 200) {
+            let { banners } = response.data
+            that.selected = banners[0].targetId
+            that.$store.dispatch('updateBanners', banners)
+          }
+        })
       }
     }
 </script>
