@@ -16,7 +16,7 @@ const mutations = {
   UPDATELEVEL (state, level) {
     state.user.level = level
   },
-  UPDATERECOMMEDRESOURCE (state, resource) {
+  UPDATERECOMMENDRESOURCE (state, resource) {
     state.recommendResource = resource
   },
   UPDATEBANNERS (state, banner) {

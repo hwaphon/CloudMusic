@@ -33,24 +33,30 @@
       computed: {
         ...mapState([
           'banners',
-          'user'
+          'user',
+          'recommendResource'
         ])
       },
       created () {
-        let that = this
         // 获取 banners 数据
-        Api.banner(function (response) {
-          if (response.data.code === 200) {
-            let { banners } = response.data
-            that.selected = banners[0].targetId
-            that.$store.dispatch('updateBanners', banners)
-          }
-        })
+        if (this.util.isEmpty(this.banners)) {
+          Api.banner(function (response) {
+            if (response.data.code === 200) {
+              let { banners } = response.data
+              this.selected = banners[0].targetId
+              this.$store.dispatch('updateBanners', banners)
+            }
+          })
+        }
 
         // 获取每日推荐歌单
-        Api.recommendResource(function (response) {
-
-        })
+        if (this.util.isEmpty(this.recommendResource)) {
+          Api.recommendResource(function (response) {
+           if (response.data.code === 200) {
+             this.$store.dispatch('updateResource', response.data.result)
+           }
+          })
+        }
       }
     }
 </script>
