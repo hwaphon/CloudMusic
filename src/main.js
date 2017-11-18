@@ -7,6 +7,8 @@ import store from './store'
 import 'font-awesome/css/font-awesome.css'
 import _ from 'underscore'
 import axios from 'axios'
+
+axios.defaults.withCredentials = true
 Vue.prototype.$http = axios
 Vue.prototype.util = _
 

@@ -46,6 +46,11 @@
             that.$store.dispatch('updateBanners', banners)
           }
         })
+
+        // 获取每日推荐歌单
+        Api.recommendResource(function (response) {
+
+        })
       }
     }
 </script>

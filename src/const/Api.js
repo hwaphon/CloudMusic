@@ -6,7 +6,7 @@ const APILIST = {
   CELLPHPNE: '/login/cellphone?',
   BANNER: '/banner',
   DETAIL: '/user/detail?',
-  RECOMMENDRESOURCE: '/recommend/resource'
+  RECOMMENDRESOURCE: '/personalized'
 }
 
 function params(uri, args) {
