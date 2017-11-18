@@ -5,10 +5,10 @@
 }
 
 .gsong-layout-container {
+  width: 960px;
   padding: 10px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
 }
 
 .gsong-layout:nth-child(n+6) {

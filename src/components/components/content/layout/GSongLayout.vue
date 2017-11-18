@@ -1,6 +1,7 @@
 <template>
   <div class="gsong-layout">
     <div class="gsong">
+      <img :src="src" :alt="des">
     </div>
     <span class="gsong-des">{{ des }}</span>
   </div>
@@ -11,7 +12,11 @@
       props: {
         des: {
           type: String,
-          default: 'Default'
+          default: ''
+        },
+        src: {
+          type: String,
+          default: ''
         }
       }
     }

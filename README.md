@@ -10,10 +10,7 @@
     cd CloudMusic && yarn
     yarn dev
 
-### 2017.11.17 效果图
+### 2017.11.18 效果图
 
 ![image](http://ozg83iln2.bkt.clouddn.com/first.jpg)
 
-### 2017.11.18 效果图
-
-![image](http://ozg83iln2.bkt.clouddn.com/20171118.jpg)

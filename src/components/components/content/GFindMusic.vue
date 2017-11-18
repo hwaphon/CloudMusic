@@ -4,7 +4,13 @@
     <GCarousel :imglist="banners" class="gcarousel" v-model="selected"></GCarousel>
     <GNav :title="recommend_song">
       <div class="gsong-layout-container">
-        <GSongLayout v-for="(item, index) in 10" :key="index" class="gsong-layout"></GSongLayout>
+        <GSongLayout
+          v-for="(item, index) in recommendResource"
+          :key="index"
+          :src="item.picUrl"
+          :des="item.name"
+          class="gsong-layout">
+        </GSongLayout>
       </div>
     </GNav>
   </div>

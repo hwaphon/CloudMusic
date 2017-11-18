@@ -1,16 +1,31 @@
 .gsong {
   border: 1px solid #e0e0e0;
-  width: 182px;
-  height: 182px;
-  margin-right: 8px;
+  width: 100%;
+  height: 172px;
 }
 
 .gsong-layout {
   flex-flow: column;
+  width: 172px;
+  margin: 0 8px;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .gsong-des {
+  padding-left: 4px;
+  margin-top: 8px;
+  display: inline-block;
+  width: 168px;
   font-size: 12px;
   font-weight: lighter;
   color: #2c2c2c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }
