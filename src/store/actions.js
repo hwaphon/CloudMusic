@@ -16,6 +16,9 @@ const actions = {
   },
   updateBanners (context, banners) {
     context.commit('UPDATEBANNERS', banners)
+  },
+  initUser (context) {
+    context.commit('INITUSER')
   }
 }
 

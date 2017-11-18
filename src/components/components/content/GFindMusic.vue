@@ -44,13 +44,14 @@
         ])
       },
       created () {
+        let that = this
         // 获取 banners 数据
         if (this.util.isEmpty(this.banners)) {
           Api.banner(function (response) {
             if (response.data.code === 200) {
               let { banners } = response.data
-              this.selected = banners[0].targetId
-              this.$store.dispatch('updateBanners', banners)
+              that.selected = banners[0].targetId
+              that.$store.dispatch('updateBanners', banners)
             }
           })
         }
@@ -59,7 +60,7 @@
         if (this.util.isEmpty(this.recommendResource)) {
           Api.recommendResource(function (response) {
            if (response.data.code === 200) {
-             this.$store.dispatch('updateResource', response.data.result)
+             that.$store.dispatch('updateResource', response.data.result)
            }
           })
         }

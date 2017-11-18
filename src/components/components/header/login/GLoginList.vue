@@ -6,12 +6,14 @@
       :index="index"
       :iconsrc="item.icon"
       :text="item.text"
-      :des="item.des"></GLoginListItem>
+      :des="item.des"
+      @onClick="clickHandler"></GLoginListItem>
   </div>
 </template>
 
 <script>
     import GLoginListItem from './GLoginListItem.vue'
+    import Event from '../../../../const/Event'
     export default {
       components: {
         GLoginListItem
@@ -22,6 +24,11 @@
           default () {
             return []
           }
+        }
+      },
+      methods: {
+        clickHandler (index) {
+          this.$emit(Event.CLICK, index)
         }
       }
     }

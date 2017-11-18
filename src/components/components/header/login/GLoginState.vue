@@ -26,6 +26,8 @@
             </div>
           </div>
           <GLoginList :items="userList"></GLoginList>
+          <GLoginList :items="userListTwo"></GLoginList>
+          <GLoginList :items="userListThree" @onClick="exitClick"></GLoginList>
         </div>
       </GModel>
     </transition>
@@ -73,6 +75,11 @@
               }
             })
           }
+        },
+        exitClick (index) {
+          localStorage.removeItem('vuex')
+          this.$store.dispatch('initUser')
+          this.showModel = false
         }
       },
       components: {
@@ -98,6 +105,19 @@
             { text: '商城', icon: 'http://ozg83iln2.bkt.clouddn.com/user_shop.png' }
           )
           return result
+        },
+        userListTwo () {
+          let result = []
+          result.push(
+            { text: '个人信息设置', icon: 'http://ozg83iln2.bkt.clouddn.com/user_settings.png' },
+            { text: '绑定社交账号', icon: 'http://ozg83iln2.bkt.clouddn.com/user_phone.png' },
+          )
+          return result
+        },
+        userListThree () {
+          return [
+            { text: '退出', icon: 'http://ozg83iln2.bkt.clouddn.com/user_exit.png' }
+          ]
         }
       }
     }

@@ -21,6 +21,13 @@ const mutations = {
   },
   UPDATEBANNERS (state, banner) {
     state.banners = banner
+  },
+  INITUSER (state) {
+    state.validate = false
+    state.user = {
+      avatarUrl: 'http://ozg83iln2.bkt.clouddn.com/usered.png',
+      nickname: '未登录'
+    }
   }
 }
 
