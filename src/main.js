@@ -8,6 +8,7 @@ import 'font-awesome/css/font-awesome.css'
 import _ from 'underscore'
 import axios from 'axios'
 Vue.prototype.$http = axios
+Vue.prototype.util = _
 
 Vue.config.productionTip = false
 

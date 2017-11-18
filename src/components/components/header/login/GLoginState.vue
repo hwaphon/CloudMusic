@@ -17,14 +17,15 @@
               <img :src="user.avatarUrl" alt="avatar image">
               <span>{{ user.nickname }}</span>
             </div>
-            <button @click="print">签到</button>
+            <button>签到</button>
           </div>
           <div class="glogin-state-model-panel-info-container">
-            <div class="glogin-state-model-panel-info" v-for="item in imgList">
+            <div class="glogin-state-model-panel-info" v-for="item in getUserBasicInfo">
               <span>{{ item.value }}</span>
               <span>{{ item.type }}</span>
             </div>
           </div>
+          <GLoginList :items="userList"></GLoginList>
         </div>
       </GModel>
     </transition>
@@ -34,16 +35,15 @@
 <script>
     import GLogin from './GLogin.vue'
     import GModel from '../GModel.vue'
-    import { mapState } from 'vuex'
+    import { mapState, mapGetters } from 'vuex'
     import Api from "../../../../const/Api";
+    import GLoginList from './GLoginList.vue'
     export default {
       data () {
         return {
           showLogin: false,
-          validate: false,
           showModel: false,
-          level: 0,
-          imgList: []
+          level: 0
         }
       },
       methods: {
@@ -63,49 +63,42 @@
         },
         closeLogin (validate) {
           this.showLogin = false
+          let that = this
           if (validate) {
-            this.validate = true
+            this.$store.dispatch('updateValidate', true)
+            this.$http.get(Api.detail(this.user.userId))
+              .then(function(response) {
+                if (response.data.code === 200) {
+                  let others = that.util.pick(response.data, 'level')
+                  that.$store.dispatch('updateUser', that.util.extend(response.data.profile, others))
+                }
+              })
           }
-        },
-        print () {
         }
       },
       components: {
         GLogin,
-        GModel
+        GModel,
+        GLoginList
       },
       computed: {
         ...mapState([
-          'user'
+          'user',
+          'validate'
         ]),
-      },
-      watch: {
-        validate (newValue) {
-          if (newValue) {
-            let that = this
-            let result = []
-            this.$http.get(Api.detail(this.user.userId))
-              .then(function(response) {
-                let { data } = response
-                that.level = data.level
-                let { profile } = data
-                result.push({
-                  type: '动态',
-                  value: profile.eventCount
-                })
-
-                result.push({
-                  type: '关注',
-                  value: profile.follows
-                })
-
-                result.push({
-                  type: '粉丝',
-                  value: profile.followeds
-                })
-              })
-            this.imgList = result
-          }
+        ...mapGetters([
+          'getUserBasicInfo',
+          'getUserVip',
+          'getUserLevel'
+        ]),
+        userList () {
+          let result = []
+          result.push(
+            { text: '会员中心', icon: 'http://ozg83iln2.bkt.clouddn.com/user_vip.png', des: this.getUserVip },
+            { text: '等级', icon: 'http://ozg83iln2.bkt.clouddn.com/user_level.png', des: this.getUserLevel },
+            { text: '商城', icon: 'http://ozg83iln2.bkt.clouddn.com/user_shop.png' }
+          )
+          return result
         }
       }
     }

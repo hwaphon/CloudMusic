@@ -1,0 +1,51 @@
+.glogin-listitem {
+  display: flex;
+  height: 36px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.glogin-listitem:hover {
+  background-color: #ebecee;
+  transition: all .2s;
+}
+
+.glogin-listitem-left, .glogin-listitem-right {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.glogin-listitem-left {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.glogin-listitem-right {
+  font-size: 16px;
+  color: #dcdcdc;
+}
+
+img {
+  height: 18px;
+  margin-right: 8px;
+}
+
+span {
+  height: 36px;
+  line-height: 36px;
+}
+
+i {
+  margin-left: 10px;
+}
+
+.glogin-listitem-right-des {
+  color: #8a8a8a;
+  font-size: 14px;
+  font-weight: lighter;
+}
