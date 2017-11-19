@@ -9,6 +9,8 @@
           :key="index"
           :src="item.picUrl"
           :des="item.name"
+          :count="item.playCount"
+          :copywriter="item.copywriter"
           class="gsong-layout">
         </GSongLayout>
       </div>
@@ -56,6 +58,7 @@
           })
         }
 
+        console.log(this.recommendResource)
         // 获取每日推荐歌单
         if (this.util.isEmpty(this.recommendResource)) {
           Api.recommendResource(function (response) {
