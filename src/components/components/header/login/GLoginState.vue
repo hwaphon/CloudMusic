@@ -17,7 +17,7 @@
               <img :src="user.avatarUrl" alt="avatar image">
               <span>{{ user.nickname }}</span>
             </div>
-            <button>签到</button>
+            <button :style="{ backgroundColor: theme }">签到</button>
           </div>
           <div class="glogin-state-model-panel-info-container">
             <div class="glogin-state-model-panel-info" v-for="item in getUserBasicInfo">
@@ -99,7 +99,8 @@
         ...mapState([
           'user',
           'validate',
-          'headerSingle'
+          'headerSingle',
+          'theme'
         ]),
         ...mapGetters([
           'getUserBasicInfo',
