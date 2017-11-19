@@ -12,7 +12,7 @@
 
 ### 2017.11.19 效果图
 
-![image](http://ozg83iln2.bkt.clouddn.com/first.jpg)
+![image](http://ozg83iln2.bkt.clouddn.com/preview.jpg)
 
 ## 开发记录
 
