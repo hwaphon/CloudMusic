@@ -10,7 +10,6 @@ span {
   margin-right: 36px;
   cursor: pointer;
   font-size: 15px;
-  color: #444;
   font-weight: lighter;
   line-height: 42px;
   width: 64px;
@@ -18,7 +17,6 @@ span {
 }
 
 span.selected {
-  border-bottom: 1px solid #C20C0C;
-  color: #C20C0C;
+  border-bottom: 1px solid;
   transition: all .2s;
 }

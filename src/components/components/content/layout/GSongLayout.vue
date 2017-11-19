@@ -1,8 +1,8 @@
 <template>
   <div class="gsong-layout">
     <div class="gsong" @mouseenter="mouseHandler" @mouseleave="mouseHandler">
-      <img :src="src" :alt="des">
-      <div class="gsong-listencount" v-show="!copyFlag">
+      <slot></slot>
+      <div class="gsong-listencount" v-show="!copyFlag && count > 0">
         <img :src="listencountsrc" alt="listen count img">
         <span class="gsong-count">{{ playCount }}</span>
       </div>
@@ -18,10 +18,6 @@
     export default {
       props: {
         des: {
-          type: String,
-          default: ''
-        },
-        src: {
           type: String,
           default: ''
         },

@@ -1,6 +1,7 @@
 .gmodel {
   width: 272px;
   position: absolute;
+  z-index: 9999;
 }
 
 .gmodel::after {

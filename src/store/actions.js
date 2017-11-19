@@ -19,6 +19,12 @@ const actions = {
   },
   initUser (context) {
     context.commit('INITUSER')
+  },
+  updateSingle (context, value) {
+    context.commit('UPDATESINGLE', value)
+  },
+  updateTheme (context, id) {
+    context.commit('UPDATETHEME', id)
   }
 }
 

@@ -4,14 +4,20 @@
     <GCarousel :imglist="banners" class="gcarousel" v-model="selected"></GCarousel>
     <GNav :title="recommend_song">
       <div class="gsong-layout-container">
+        <GSongLayout des="每日歌曲推荐" copywriter="根据你的音乐口味生成每日推荐">
+          <div class="gsong-layout-recommend">
+            <span class="gsong-layout-week">{{ todayDate.week }}</span>
+            <span class="gsong-layout-date" :style="{ color: theme }">{{ todayDate.day }}</span>
+          </div>
+        </GSongLayout>
         <GSongLayout
           v-for="(item, index) in recommendResource"
           :key="index"
-          :src="item.picUrl"
           :des="item.name"
           :count="item.playCount"
           :copywriter="item.copywriter"
           class="gsong-layout">
+          <img :src="item.picUrl" :alt="item.des" class="gsong-layout-img">
         </GSongLayout>
       </div>
     </GNav>
@@ -24,6 +30,7 @@
     import GNav from './nav/GNav.vue'
     import GSongLayout from './layout/GSongLayout.vue'
     import Api from '../../../const/Api'
+    import toWeek from '../../../util/date'
     import { mapState } from 'vuex'
     export default {
       components: {
@@ -42,8 +49,16 @@
         ...mapState([
           'banners',
           'user',
-          'recommendResource'
-        ])
+          'recommendResource',
+          'theme'
+        ]),
+        todayDate () {
+          let date = new Date()
+          return {
+            day: date.getDate(),
+            week: toWeek(date.getDay())
+          }
+        }
       },
       created () {
         let that = this

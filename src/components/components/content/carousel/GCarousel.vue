@@ -11,6 +11,7 @@
         v-for="(item, index) in imglist"
         :key="item.targetId"
         :class="{ 'selected': findIndexByValue(value) === index }"
+        :style="{ 'backgroundColor':  findIndexByValue(value) === index ? theme : '#c4c4c4' }"
         @mouseover="routerIndex(index)">
       </span>
     </div>
@@ -23,6 +24,7 @@
 
 <script>
     import Event from '../../../../const/Event'
+    import { mapState } from 'vuex'
     export default {
       props: {
         imglist: {
@@ -42,6 +44,11 @@
         return {
           timeId: ''
         }
+      },
+      computed: {
+        ...mapState([
+          'theme'
+        ])
       },
       methods: {
         start () {

@@ -4,7 +4,9 @@
       v-for="item in items"
       :key="item.key"
       @click="$store.dispatch('updateTabbar', item.key)"
-      :class="{ 'selected': tabbar === item.key }">
+      :class="{ 'selected': tabbar === item.key }"
+      :style="{ borderBottomColor: tabbar === item.key ? theme : 'transparent',
+        color: tabbar === item.key ? theme: '#444' }">
       {{ item.des }}
     </span>
   </div>
@@ -28,7 +30,8 @@
       },
       computed: {
         ...mapState([
-          'tabbar'
+          'tabbar',
+          'theme'
         ])
       }
     }

@@ -1,0 +1,49 @@
+.gcolorpicker {
+  width: 74px;
+  height: 74px;
+  background-color: #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gcolorpicker-des {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  padding: 0 4px;
+  font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  color: #FFF;
+}
+
+.select-container {
+  width: 22px;
+  height: 22px;
+  border-radius: 22px;
+  border: 2px solid #FFFFFF;
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .2s;
+}
+
+.fade-enter-to, .fade-leave {
+  opacity: 1;
+}

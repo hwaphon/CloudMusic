@@ -10,8 +10,8 @@
       <GLogin v-if="showLogin" @onClose="closeLogin"></GLogin>
     </transition>
     <transition name="model">
-      <GModel class="glogin-state-model" v-if="showModel">
-        <div class="glogin-state-model-panel">
+      <GModel class="glogin-model" v-if="headerSingle === 1">
+        <div class="glogin-state-model-panel" @blur="blurHandler">
           <div class="glogin-state-model-panel-header">
             <div class="glogin-state-model-panel-header-imgcontainer">
               <img :src="user.avatarUrl" alt="avatar image">
@@ -43,9 +43,7 @@
     export default {
       data () {
         return {
-          showLogin: false,
-          showModel: false,
-          level: 0
+          showLogin: false
         }
       },
       methods: {
@@ -55,12 +53,19 @@
             return
           }
         },
+        blurHandler (){
+          this.controlModel(false)
+        },
         nickClick () {
           if (!this.validate) {
             this.showLogin = true
             return
           } else {
-            this.showModel = !this.showModel
+            if (this.headerSingle !== 1) {
+              this.controlModel(1)
+            } else {
+              this.controlModel(0)
+            }
           }
         },
         closeLogin (validate) {
@@ -79,7 +84,10 @@
         exitClick (index) {
           localStorage.removeItem('vuex')
           this.$store.dispatch('initUser')
-          this.showModel = false
+          this.controlModel(0)
+        },
+        controlModel (value) {
+          this.$store.dispatch('updateSingle', value)
         }
       },
       components: {
@@ -90,7 +98,8 @@
       computed: {
         ...mapState([
           'user',
-          'validate'
+          'validate',
+          'headerSingle'
         ]),
         ...mapGetters([
           'getUserBasicInfo',

@@ -2,7 +2,9 @@
   <div
     class="gmenu-item"
     @click="clickHandler"
-    :class="{ 'selected': selected }">
+    :class="{ 'selected': selected }"
+    :style="{ borderLeftWidth: selected ? '3px' : '0px',
+      borderLeftColor: selected ? theme : 'transparent' }">
     <img :src="iconsrc" alt="icon">
     <span>{{ des }}</span>
   </div>
@@ -30,7 +32,8 @@
       },
       computed: {
         ...mapState([
-          'menubar'
+          'menubar',
+          'theme'
         ]),
         selected () {
           return this.menubar === this.index

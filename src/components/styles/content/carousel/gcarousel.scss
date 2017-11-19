@@ -85,12 +85,10 @@ i:last-child {
 span {
   width: 18px;
   height: 3px;
-  background-color: #c4c4c4;
   margin-right: 6px;
   cursor: pointer;
 }
 
 span.selected {
-  background-color: #C20C0C;
   transition: background-color .2s;
 }
