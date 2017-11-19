@@ -4,6 +4,12 @@
   padding-left: 46px;
 }
 
+.gfind-music {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
 .gsong-layout-container {
   width: 960px;
   padding: 10px;
