@@ -1,0 +1,63 @@
+.recommendsong {
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+  padding: 36px 0;
+}
+
+.recommendsong-header {
+  height: 96px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.recommendsong-header-des {
+  height: 96px;
+  display: flex;
+  flex-flow: column;
+  margin-left: 28px;
+  color: #444444;
+}
+
+.recommendsong-header-des > span:first-child {
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.recommendsong-header-des > span:last-child {
+  font-size: 12px;
+  font-weight: lighter;
+  margin-top: 8px;
+}
+
+.gsong-layout {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dcdcdc;
+}
+
+.gsong-layout-recommend {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  background-color: #FFFFFF;
+}
+
+.gsong-layout-week {
+  font-size: 16px;
+  color: #626260;
+}
+
+.gsong-layout-date {
+  font-size: 42px;
+  font-weight: bold;
+}
+

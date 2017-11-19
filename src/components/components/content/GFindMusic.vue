@@ -4,7 +4,10 @@
     <GCarousel :imglist="banners" class="gcarousel" v-model="selected"></GCarousel>
     <GNav :title="recommend_song">
       <div class="gsong-layout-container">
-        <GSongLayout des="每日歌曲推荐" copywriter="根据你的音乐口味生成每日推荐">
+        <GSongLayout
+          des="每日歌曲推荐"
+          copywriter="根据你的音乐口味生成每日推荐"
+          @onClick="routerToRecommendSong">
           <div class="gsong-layout-recommend">
             <span class="gsong-layout-week">{{ todayDate.week }}</span>
             <span class="gsong-layout-date" :style="{ color: theme }">{{ todayDate.day }}</span>
@@ -39,6 +42,11 @@
         GNav,
         GSongLayout
       },
+      methods: {
+        routerToRecommendSong () {
+          this.$router.push('/recommendsong')
+        }
+      },
       data () {
         return {
           selected: 0,
@@ -72,8 +80,6 @@
             }
           })
         }
-
-        console.log(this.recommendResource)
         // 获取每日推荐歌单
         if (this.util.isEmpty(this.recommendResource)) {
           Api.recommendResource(function (response) {

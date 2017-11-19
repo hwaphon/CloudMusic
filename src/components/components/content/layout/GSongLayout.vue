@@ -1,5 +1,5 @@
 <template>
-  <div class="gsong-layout">
+  <div class="gsong-layout" @click="clickHandler">
     <div class="gsong" @mouseenter="mouseHandler" @mouseleave="mouseHandler">
       <slot></slot>
       <div class="gsong-listencount" v-show="!copyFlag && count > 0">
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+    import Event from '../../../../const/Event'
     export default {
       props: {
         des: {
@@ -39,6 +40,9 @@
       methods: {
         mouseHandler () {
           this.copyFlag = !this.copyFlag
+        },
+        clickHandler () {
+          this.$emit(Event.CLICK)
         }
       },
       computed: {

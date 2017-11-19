@@ -61,8 +61,10 @@
         openSettings () {
         },
         routerBefore () {
+          this.$router.go(-1)
         },
         routerAfter () {
+          this.$router.go(1)
         }
       },
       components: {
@@ -76,9 +78,6 @@
           'headerSingle',
           'theme'
         ])
-      },
-      created () {
-        console.log(this.theme)
       }
     }
 </script>
