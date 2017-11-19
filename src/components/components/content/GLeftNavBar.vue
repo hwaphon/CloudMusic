@@ -16,8 +16,8 @@
         return {
           recommend_title: '推荐',
           recommend_items: [
-            { src: Menu.FINDMUSIC.icon, des: '发现音乐', index: Menu.FINDMUSIC.name },
-            { src: Menu.PERSONALFM.icon, des: '私人FM', index: Menu.PERSONALFM.name },
+            { src: Menu.FINDMUSIC.icon, des: '发现音乐', index: Menu.FINDMUSIC.name, path: '/findmusic' },
+            { src: Menu.PERSONALFM.icon, des: '私人FM', index: Menu.PERSONALFM.name, path: '/personalfm' },
             { src: Menu.MV.icon, des: 'MV', index: Menu.MV.name },
             { src: Menu.FRIENDS.icon, des: '朋友', index: Menu.FRIENDS.name }
           ],

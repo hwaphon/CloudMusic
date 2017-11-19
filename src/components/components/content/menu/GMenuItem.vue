@@ -20,13 +20,18 @@
           default: ''
         },
         des: '',
-        index: ''
+        index: '',
+        path: {
+          type: String,
+          default: '/'
+        }
       },
       methods: {
         clickHandler () {
           if (!this.selected) {
             this.$store.dispatch('updateMenubar', this.index)
           }
+          this.$router.push(this.path)
           this.$emit(Event.CLICK)
         }
       },

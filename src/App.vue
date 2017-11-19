@@ -4,7 +4,7 @@
     <div class="main-content">
       <GLeftNavbar class="main-content-cell"></GLeftNavbar>
       <GContent class="main-content-cell">
-        <router-view :name="menubar"/>
+        <router-view />
       </GContent>
     </div>
   </div>
@@ -14,7 +14,6 @@
   import GHeader from './components/components/header/GHeader.vue'
   import GLeftNavbar from './components/components/content/GLeftNavBar.vue'
   import GContent from './components/components/content/GContent.vue'
-  import { mapState } from 'vuex'
   export default {
     name: 'MainView',
     data () {
@@ -25,11 +24,6 @@
       GHeader,
       GLeftNavbar,
       GContent
-    },
-    computed: {
-      ...mapState([
-        'menubar'
-      ])
     }
   }
 </script>

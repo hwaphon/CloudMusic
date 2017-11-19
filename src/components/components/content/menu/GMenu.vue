@@ -5,6 +5,7 @@
       v-for="(item, index) in items"
       :key="index"
       :iconsrc="item.src"
+      :path="item.path"
       :des="item.des"
       :index="item.index">
     </GMenuItem>
