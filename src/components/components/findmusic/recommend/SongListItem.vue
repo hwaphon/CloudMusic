@@ -18,6 +18,7 @@
 
 <script>
     import getMusicById from '../../../../util/music'
+    import secondToTime from '../../../../util/time'
     export default {
       props: {
         id: { type: String | Number },
@@ -37,18 +38,14 @@
           return t.join('/')
         },
         finalTime () {
-          let total = Math.round(this.time / 1000)
-          let minute = (Math.floor(total / 60)).toString()
-          let second = (total % 60).toString()
-
-          minute = minute.length > 1 ? minute : `0${ minute }`
-          second = second.length > 1 ? second : `0${ second }`
-          return `${minute}:${second}`
+          let total = Math.floor(this.time / 1000)
+          return secondToTime(total)
         }
       },
       methods: {
         clickHandler () {
           this.$store.dispatch('updateMusic', { src: getMusicById(this.id) })
+          this.$store.dispatch('updatePlaying', false)
         },
         dbClick () {
           console.log('dbclick')

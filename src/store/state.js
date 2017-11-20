@@ -15,7 +15,7 @@ const state = {
   // 0 表示二者都关闭，1表示个人信息面板开启，2表示主题信息打开
   headerSingle: 0,
   theme: Color[0].value,
-  music: {},
+  music: { duration: 0, currentTime: 0 },
   playing: false
 }
 

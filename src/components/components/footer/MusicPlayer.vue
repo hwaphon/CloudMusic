@@ -16,7 +16,13 @@
         <i class="fa fa-step-forward" aria-hidden="true"></i>
       </div>
     </div>
-    <audio v-show="false" id="player" preload="auto" :src="music.src">
+    <audio
+      v-show="false"
+      id="player"
+      preload="auto"
+      :src="music.src"
+      @ended="endHandler"
+      @timeupdate="timeupdate">
     </audio>
     <MusicPlayerProgress :totalTime="totalTime" :currentTime="currentTime"></MusicPlayerProgress>
   </div>
@@ -50,18 +56,35 @@
       methods: {
         playHandler () {
           if (this.playing) {
-            this.$store.dispatch('updatePlaying', false)
-            this.player.pause()
+            this.pause()
           } else {
-            this.$store.dispatch('updatePlaying', true)
-            this.player.play()
+            this.play()
           }
+        },
+        updateTotalTime () {
+          this.$store.dispatch('updateUser', { duration: this.player.duration })
+        },
+        endHandler () {
+
+        },
+        play () {
+          this.$store.dispatch('updatePlaying', true)
+          this.player.play()
+          this.util.delay(this.updateTotalTime, 500)
+        },
+        pause () {
+          this.$store.dispatch('updatePlaying', false)
+          this.player.pause()
+        },
+        timeupdate () {
+          this.$store.dispatch('updateUser', { currentTime: Math.round(this.player.currentTime) })
         }
       },
       watch: {
         playing (value) {
           if (value) {
             this.player.play()
+            this.util.delay(this.updateTotalTime, 500)
           }
         }
       },

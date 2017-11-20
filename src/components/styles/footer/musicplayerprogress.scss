@@ -18,13 +18,13 @@
   position: absolute;
   top: 0px;
   bottom: 0px;
-  left: 0px;
+  right: 0px;
+  left: 0;
   border-radius: 6px;
-  width: 20px;
 }
 
 .progress {
-  flex: 1 1 0px;
+  width:  778px;
   height: 6px;
   background-color: #dcdcdc;
   border-radius: 6px;
