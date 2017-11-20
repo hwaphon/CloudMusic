@@ -9,10 +9,24 @@
     git clone https://github.com/hwaphon/CloudMusic.git
     cd CloudMusic && yarn
     yarn dev
+    
+## 效果图
 
-### 2017.11.19 效果图
+### 登录界面
 
-![image](http://ozg83iln2.bkt.clouddn.com/preview.jpg)
+![image](http://ozg83iln2.bkt.clouddn.com/preview1.jpg)
+
+### 个人面板
+
+![image](http://ozg83iln2.bkt.clouddn.com/preview2.jpg)
+
+### 主题管理
+
+![image](http://ozg83iln2.bkt.clouddn.com/preview3.jpg)
+
+### 每日推荐歌曲
+
+![image](http://ozg83iln2.bkt.clouddn.com/preview4.jpg)
 
 ## 开发记录
 
