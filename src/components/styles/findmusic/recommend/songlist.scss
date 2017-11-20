@@ -1,3 +1,64 @@
 .songlist {
   border: 1px solid #dcdcdc;
 }
+
+.songlist-header {
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 14px;
+  padding-right: 48px;
+}
+
+.songlist-playall {
+  width: 118px;
+  height: 24px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: lighter;
+  border: 1px solid;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.songlist-playall-left, .songlist-playall-right {
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.songlist-playall-left:hover,
+.songlist-playall-right:hover,
+.songlist-collection:hover {
+  background-color: #f5f5f7;
+}
+
+.songlist-playall-left {
+  width: 88px;
+  border-right: 1px solid lighten(#dcdcdc, 5%);
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.songlist-playall-right {
+  width: 30px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.songlist-collection {
+  width: 88px;
+  height: 24px;
+  line-height: 22px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  text-align: center;
+  font-size: 13px;
+  font-weight: lighter;
+  color: #444444;
+  cursor: pointer;
+}

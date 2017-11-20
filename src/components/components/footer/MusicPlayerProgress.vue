@@ -1,6 +1,6 @@
 <template>
   <div class="musicplayer-progress">
-    <span class="progress-time">00:10</span>
+    <span class="progress-time">00:24</span>
     <div class="progress">
       <span class="progress-timed" :style="{ backgroundColor: theme }"></span>
     </div>

@@ -16,8 +16,9 @@
         <i class="fa fa-step-forward" aria-hidden="true"></i>
       </div>
     </div>
-    <MusicPlayerProgress></MusicPlayerProgress>
-    <audio v-show="false" ref="player"></audio>
+    <audio v-show="false" id="player" preload="auto" :src="src">
+    </audio>
+    <MusicPlayerProgress :totalTime="totalTime" :currentTime="currentTime"></MusicPlayerProgress>
   </div>
 </template>
 
@@ -25,28 +26,38 @@
     import { mapState } from 'vuex'
     import MusicPlayerProgress from './MusicPlayerProgress.vue'
     export default {
-      data () {
-        return {
-          src: 'http://m10.music.126.net/20171120124503/2c8586c140378373c1767d1d41a98c15/ymusic/1e04/8fec/3d96/7222f10ddce6facc33a520640eb2efa1.mp3'
-        }
-      },
       computed: {
         ...mapState([
           'theme'
-        ])
+        ]),
+        totalTime () {
+          return this.player.duration
+        },
+        currentTime () {
+          return this.player.currentTime
+        }
       },
       components: {
         MusicPlayerProgress
       },
       data () {
         return {
-          playing: false
+          playing: false,
+          src: 'http://ozg83iln2.bkt.clouddn.com/test.mp3',
+          player: ''
         }
       },
       methods: {
         playHandler () {
-          this.playing = !this.playing
+          if (this.playing = !this.playing) {
+            this.player.play()
+          } else {
+            this.player.pause()
+          }
         }
+      },
+      mounted () {
+        this.player = document.querySelector('#player')
       }
     }
 </script>
