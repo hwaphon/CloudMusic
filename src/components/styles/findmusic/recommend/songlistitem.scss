@@ -1,0 +1,81 @@
+.songlist-item {
+  height: 28px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  cursor: default;
+}
+
+.songlist-item:hover {
+  background-color: #e3e3e5;
+}
+
+.songlist-item-header {
+  padding-left: 14px;
+  height: 28px;
+  line-height: 28px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  color: #9a9a9a;
+  font-size: 14px;
+  margin-right: 22px;
+}
+
+.songlist-item-header > span {
+  margin-right: 18px;
+}
+
+.songlist-item-header > i {
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.songlist-item-header > i:hover {
+  color: #444444;
+  transition: color .2s;
+}
+
+.songlist-item-info {
+  height: 28px;
+  line-height: 28px;
+  color: #444444;
+  font-size: 14px;
+  flex: 1 1 0px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: lighter;
+  padding-right: 48px;
+}
+
+.songlist-item-info > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.songlist-item-info-song {
+  flex: 1 4 450px;
+}
+
+.songlist-item-info-songer {
+  flex: 1 2 180px;
+}
+
+.songlist-item-info-album {
+  flex: 1 2 240px;
+}
+
+.songlist-item-info-time {
+  flex: 1 1 48px;
+  color: #9a9a9a;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+.dark {
+  background-color: #f5f5f7;
+}
+

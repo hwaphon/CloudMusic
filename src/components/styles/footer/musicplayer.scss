@@ -1,0 +1,39 @@
+.musicplayer {
+  height: 50px;
+  background-color: #f6f6f8;
+  border-top: 1px solid #dcdcdc;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.player-control {
+  width: 196px;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  font-size: 12px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.player-ps {
+  height: 34px;
+  width: 34px;
+  font-size: 16px;
+}
+
+
+

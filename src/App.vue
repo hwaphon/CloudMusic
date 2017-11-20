@@ -7,6 +7,7 @@
         <router-view />
       </GContent>
     </div>
+    <MusicPlayer></MusicPlayer>
   </div>
 </template>
 
@@ -14,6 +15,7 @@
   import GHeader from './components/components/header/GHeader.vue'
   import GLeftNavbar from './components/components/content/GLeftNavBar.vue'
   import GContent from './components/components/content/GContent.vue'
+  import MusicPlayer from './components/components/footer/MusicPlayer.vue'
   export default {
     name: 'MainView',
     data () {
@@ -23,7 +25,8 @@
     components: {
       GHeader,
       GLeftNavbar,
-      GContent
+      GContent,
+      MusicPlayer
     }
   }
 </script>

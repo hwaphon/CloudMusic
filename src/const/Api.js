@@ -6,7 +6,8 @@ const APILIST = {
   CELLPHPNE: '/login/cellphone?',
   BANNER: '/banner',
   DETAIL: '/user/detail?',
-  RECOMMENDRESOURCE: '/personalized'
+  RECOMMENDRESOURCE: '/personalized',
+  RECOMMENDSONG: '/recommend/songs'
 }
 
 function params(uri, args) {
@@ -45,5 +46,8 @@ export default {
   },
   recommendResource (callback) {
     return request(params(APILIST.RECOMMENDRESOURCE), callback)
+  },
+  recommendSongs (callback) {
+    return request(params(APILIST.RECOMMENDSONG), callback)
   }
 }
