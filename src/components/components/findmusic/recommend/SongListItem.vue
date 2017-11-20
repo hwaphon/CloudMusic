@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import getMusicById from '../../../../util/music'
     export default {
       props: {
         id: { type: String | Number },
@@ -47,7 +48,10 @@
       },
       methods: {
         clickHandler () {
-
+          this.$store.dispatch('updateMusic', { src: getMusicById(this.id) })
+        },
+        dbClick () {
+          console.log('dbclick')
         }
       }
     }

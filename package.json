@@ -11,8 +11,12 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "electron": "^1.7.9",
     "font-awesome": "^4.7.0",
+    "fs": "0.0.1-security",
     "js-cookie": "^2.2.0",
+    "net": "^1.0.2",
+    "tl": "^0.10.1",
     "underscore": "^1.8.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

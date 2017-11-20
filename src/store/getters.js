@@ -1,5 +1,5 @@
 const getters = {
-  getUserBasicInfo(state) {
+  getUserBasicInfo (state) {
     let result = []
     result.push(
       {type: "动态", value: state.user.eventCount},
@@ -9,15 +9,15 @@ const getters = {
     return result
   },
 
-  getUserVip(state) {
+  getUserVip (state) {
     if (state.user.vipType == 0) {
       return '未订购'
     }
   },
 
-  getUserLevel(state) {
+  getUserLevel (state) {
     return `LV.${state.user.level}`
-  },
+  }
 }
 
 export default getters

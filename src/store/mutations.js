@@ -36,6 +36,12 @@ const mutations = {
   UPDATETHEME (state, id) {
     let index = _.findIndex(Color, { id })
     state.theme = Color[index].value
+  },
+  UPDATEMUSIC (state, info) {
+    state.music = _.extend(state.music, info)
+  },
+  UPDATEPLAYING (state, value) {
+    state.playing = value
   }
 }
 

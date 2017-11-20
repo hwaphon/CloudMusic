@@ -16,7 +16,7 @@
         <i class="fa fa-step-forward" aria-hidden="true"></i>
       </div>
     </div>
-    <audio v-show="false" id="player" preload="auto" :src="src">
+    <audio v-show="false" id="player" preload="auto" :src="music.src">
     </audio>
     <MusicPlayerProgress :totalTime="totalTime" :currentTime="currentTime"></MusicPlayerProgress>
   </div>
@@ -28,7 +28,9 @@
     export default {
       computed: {
         ...mapState([
-          'theme'
+          'theme',
+          'music',
+          'playing'
         ]),
         totalTime () {
           return this.player.duration
@@ -42,17 +44,24 @@
       },
       data () {
         return {
-          playing: false,
-          src: 'http://ozg83iln2.bkt.clouddn.com/test.mp3',
           player: ''
         }
       },
       methods: {
         playHandler () {
-          if (this.playing = !this.playing) {
-            this.player.play()
-          } else {
+          if (this.playing) {
+            this.$store.dispatch('updatePlaying', false)
             this.player.pause()
+          } else {
+            this.$store.dispatch('updatePlaying', true)
+            this.player.play()
+          }
+        }
+      },
+      watch: {
+        playing (value) {
+          if (value) {
+            this.player.play()
           }
         }
       },

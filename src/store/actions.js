@@ -25,6 +25,12 @@ const actions = {
   },
   updateTheme (context, id) {
     context.commit('UPDATETHEME', id)
+  },
+  updateMusic (context, info) {
+    context.commit('UPDATEMUSIC', info)
+  },
+  updatePlaying (context, value) {
+    context.commit('UPDATEPLAYING', value)
   }
 }
 
