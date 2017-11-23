@@ -25,12 +25,14 @@
       @timeupdate="timeupdate">
     </audio>
     <MusicPlayerProgress></MusicPlayerProgress>
+    <MusicPlayerVolumn></MusicPlayerVolumn>
   </div>
 </template>
 
 <script>
     import { mapState } from 'vuex'
     import MusicPlayerProgress from './MusicPlayerProgress.vue'
+    import MusicPlayerVolumn from './MusicPlayerVolumn.vue'
     export default {
       computed: {
         ...mapState([
@@ -46,7 +48,8 @@
         }
       },
       components: {
-        MusicPlayerProgress
+        MusicPlayerProgress,
+        MusicPlayerVolumn
       },
       data () {
         return {

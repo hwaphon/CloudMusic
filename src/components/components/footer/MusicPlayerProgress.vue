@@ -2,9 +2,11 @@
   <div class="musicplayer-progress">
     <span class="progress-time">{{ finalCurrentTime }}</span>
     <div class="progress">
-      <span
+      <div
         class="progress-timed"
-        :style="{ backgroundColor: theme, width: progress + 'px' }"></span>
+        :style="{ backgroundColor: theme, width: progress + 'px' }">
+        <span class="thumb" :style="{ backgroundColor: theme }"></span>
+      </div>
     </div>
     <span class="progress-total">{{ finalTime }}</span>
   </div>
