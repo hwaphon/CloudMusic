@@ -24,7 +24,7 @@
       @ended="endHandler"
       @timeupdate="timeupdate">
     </audio>
-    <MusicPlayerProgress :totalTime="totalTime" :currentTime="currentTime"></MusicPlayerProgress>
+    <MusicPlayerProgress></MusicPlayerProgress>
   </div>
 </template>
 
@@ -55,36 +55,37 @@
       },
       methods: {
         playHandler () {
-          if (this.playing) {
-            this.pause()
-          } else {
-            this.play()
-          }
+            if (this.playing) {
+              this.pause()
+            } else {
+              this.play()
+            }
         },
         updateTotalTime () {
-          this.$store.dispatch('updateUser', { duration: this.player.duration })
+          this.$store.dispatch('updateMusic', { duration: this.player.duration })
         },
         endHandler () {
 
         },
         play () {
           this.$store.dispatch('updatePlaying', true)
-          this.player.play()
-          this.util.delay(this.updateTotalTime, 500)
+          this.player.addEventListener('canplay', () => {
+            this.player.play()
+            this.util.delay(this.updateTotalTime, 200)
+          })
         },
         pause () {
-          this.$store.dispatch('updatePlaying', false)
           this.player.pause()
+          this.$store.dispatch('updatePlaying', false)
         },
         timeupdate () {
-          this.$store.dispatch('updateUser', { currentTime: Math.round(this.player.currentTime) })
+          this.$store.dispatch('updateMusic', { currentTime: Math.round(this.player.currentTime) })
         }
       },
       watch: {
         playing (value) {
           if (value) {
-            this.player.play()
-            this.util.delay(this.updateTotalTime, 500)
+            this.play()
           }
         }
       },

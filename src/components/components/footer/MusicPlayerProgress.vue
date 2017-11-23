@@ -14,23 +14,23 @@
     import { mapState } from 'vuex'
     import secondToTime from '../../../util/time'
     export default {
-      props: {
-        currentTime: { type: String | Number, default: 0},
-        totalTime: {type: String | Number, default: 0 }
-      },
       computed: {
         ...mapState([
           'theme',
-          'user'
+          'user',
+          'music'
         ]),
         finalTime () {
-          return secondToTime(this.user.duration)
+          return secondToTime(this.music.duration)
         },
         finalCurrentTime () {
-          return secondToTime(this.user.currentTime)
+          return secondToTime(this.music.currentTime)
         },
         progress () {
-          return Math.round(this.user.currentTime / this.user.duration * 778)
+          if (this.music.duration === 0) {
+            return 0
+          }
+          return Math.round(this.music.currentTime / this.music.duration * 778)
         }
       }
     }

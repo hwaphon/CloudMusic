@@ -46,9 +46,6 @@
         clickHandler () {
           this.$store.dispatch('updateMusic', { src: getMusicById(this.id) })
           this.$store.dispatch('updatePlaying', false)
-        },
-        dbClick () {
-          console.log('dbclick')
         }
       }
     }
