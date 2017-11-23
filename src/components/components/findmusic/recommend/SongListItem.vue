@@ -44,8 +44,12 @@
       },
       methods: {
         clickHandler () {
-          this.$store.dispatch('updateMusic', { src: getMusicById(this.id) })
-          this.$store.dispatch('updatePlaying', false)
+          this.$store.dispatch('updateMusicQueue',
+            { src: getMusicById(this.id),
+              name: this.song,
+              songer: this.songer,
+              time: this.finalTime
+            })
         }
       }
     }

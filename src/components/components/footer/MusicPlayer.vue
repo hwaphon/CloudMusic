@@ -33,12 +33,15 @@
     import { mapState } from 'vuex'
     import MusicPlayerProgress from './MusicPlayerProgress.vue'
     import MusicPlayerVolumn from './MusicPlayerVolumn.vue'
+    import Type from '../../../const/Type'
     export default {
       computed: {
         ...mapState([
           'theme',
+          'musicQueue',
           'music',
-          'playing'
+          'playing',
+          'playingSettings'
         ]),
         totalTime () {
           return this.player.duration
@@ -61,7 +64,12 @@
             if (this.playing) {
               this.pause()
             } else {
-              this.play()
+              if (!this.music.src) {
+                this.play()
+                return
+              }
+              this.$store.dispatch('updatePlaying', true)
+              this.player.play()
             }
         },
         updateTotalTime () {
@@ -71,6 +79,8 @@
 
         },
         play () {
+          this.playNextMusic()
+          this.updateMusic(this.playingSettings.index)
           this.$store.dispatch('updatePlaying', true)
           this.player.addEventListener('canplay', () => {
             this.player.play()
@@ -83,6 +93,31 @@
         },
         timeupdate () {
           this.$store.dispatch('updateMusic', { currentTime: Math.round(this.player.currentTime) })
+        },
+        playNextMusic () {
+          if (Type.ORDER === this.playingSettings.type) {
+            if (this.playingSettings.index === this.musicQueue.length - 1) {
+              this.$store.dispatch('updatePlaying', false)
+            } else {
+              this.updateIndex(this.playingSettings.index + 1)
+            }
+          } else if (Type.RANDOM === this.playingSettings.type) {
+            let index = Math.floor(this.musicQueue.length * Math.random())
+            this.updateIndex(index)
+          } else if (Type.LOOP === this.playingSettings.type) {
+            let index = this.playingSettings.index + 1
+            if (index >= this.musicQueue.length) {
+              index = 0
+            }
+            this.updateIndex(index)
+          } else if (Type.SINGLE === this.playingSettings.type) {
+          }
+        },
+        updateIndex (index) {
+          this.$store.dispatch('updatePlayingSettings', { index })
+        },
+        updateMusic (index) {
+          this.$store.dispatch('updateMusic', this.musicQueue[index])
         }
       },
       watch: {

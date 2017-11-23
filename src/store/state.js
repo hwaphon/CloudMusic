@@ -1,6 +1,7 @@
 import Menu from '../const/Menu'
 import Tab from '../const/Tab'
 import Color from '../const/Theme'
+import Type from '../const/Type'
 
 const state = {
   menubar: Menu.FINDMUSIC.name,
@@ -16,7 +17,9 @@ const state = {
   headerSingle: 0,
   theme: Color[0].value,
   music: { duration: 0, currentTime: 0, volumn: 1 },
-  playing: false
+  playing: false,
+  musicQueue: [],
+  playingSettings: { index: -1, type: Type.ORDER }
 }
 
 export default state

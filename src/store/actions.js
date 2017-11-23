@@ -29,8 +29,17 @@ const actions = {
   updateMusic (context, info) {
     context.commit('UPDATEMUSIC', info)
   },
+  initMusic (context) {
+    context.commit('INITMUSIC')
+  },
   updatePlaying (context, value) {
     context.commit('UPDATEPLAYING', value)
+  },
+  updateMusicQueue (context, value) {
+    context.commit('UPDATEMUSICQUEUE', value)
+  },
+  updatePlayingSettings (context, value) {
+    context.commit('UPDATEPLAYINGSETTINGS', value)
   }
 }
 

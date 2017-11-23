@@ -1,3 +1,5 @@
+import Type from '../const/Type'
+
 const getters = {
   getUserBasicInfo (state) {
     let result = []
