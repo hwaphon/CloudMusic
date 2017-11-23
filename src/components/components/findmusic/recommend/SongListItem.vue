@@ -47,7 +47,8 @@
           this.$store.dispatch('updateMusicQueue',
             { src: getMusicById(this.id),
               name: this.song,
-              songer: this.songer,
+              id: this.id,
+              songer: this.finalSonger,
               time: this.finalTime
             })
         }

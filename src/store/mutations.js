@@ -41,11 +41,7 @@ const mutations = {
     state.music = _.extend(state.music, info)
   },
   INITMUSIC (state) {
-    state.music = {
-      duration: 0,
-      currentTime: 0,
-      volumn: 0.5
-    }
+    state.music = _.extend(state.music, { currentTime: 0, duration: 0 })
   },
   UPDATEPLAYING (state, value) {
     state.playing = value

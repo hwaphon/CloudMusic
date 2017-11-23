@@ -4,7 +4,7 @@
     <div class="progress">
       <div
         class="progress-timed"
-        :style="{ backgroundColor: theme, width: (progress - 12) + 'px' }">
+        :style="{ backgroundColor: theme, width: progress + 'px' }">
         <span class="thumb" :style="{ backgroundColor: theme }"></span>
       </div>
     </div>
@@ -32,7 +32,7 @@
           if (this.music.duration === 0) {
             return 0
           }
-          return Math.round(this.music.currentTime / this.music.duration * 778)
+          return Math.round(this.music.currentTime / this.music.duration * 778) - 12
         }
       }
     }

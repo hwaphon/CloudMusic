@@ -26,6 +26,10 @@
     </audio>
     <MusicPlayerProgress></MusicPlayerProgress>
     <MusicPlayerVolumn></MusicPlayerVolumn>
+    <div class="player-list">
+      <i class="fa fa-list-ul" aria-hidden="true" @click="showList = !showList"></i>
+    </div>
+    <MusicList v-if="showList"></MusicList>
   </div>
 </template>
 
@@ -33,6 +37,7 @@
     import { mapState } from 'vuex'
     import MusicPlayerProgress from './MusicPlayerProgress.vue'
     import MusicPlayerVolumn from './MusicPlayerVolumn.vue'
+    import MusicList from './MusicList.vue'
     import Type from '../../../const/Type'
     export default {
       computed: {
@@ -52,11 +57,13 @@
       },
       components: {
         MusicPlayerProgress,
-        MusicPlayerVolumn
+        MusicPlayerVolumn,
+        MusicList
       },
       data () {
         return {
-          player: ''
+          player: '',
+          showList: false
         }
       },
       methods: {
@@ -76,7 +83,9 @@
           this.$store.dispatch('updateMusic', { duration: this.player.duration })
         },
         endHandler () {
-          console.log('end')
+          this.pause()
+          this.$store.dispatch('initMusic')
+          this.play()
         },
         play () {
           this.playNextMusic()
