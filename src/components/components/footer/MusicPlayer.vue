@@ -76,7 +76,7 @@
           this.$store.dispatch('updateMusic', { duration: this.player.duration })
         },
         endHandler () {
-
+          console.log('end')
         },
         play () {
           this.playNextMusic()

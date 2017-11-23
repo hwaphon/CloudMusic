@@ -4,7 +4,7 @@
     <div class="progress">
       <div
         class="progress-timed"
-        :style="{ backgroundColor: theme, width: progress + 'px' }">
+        :style="{ backgroundColor: theme, width: (progress - 12) + 'px' }">
         <span class="thumb" :style="{ backgroundColor: theme }"></span>
       </div>
     </div>
