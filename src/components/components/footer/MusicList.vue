@@ -7,7 +7,7 @@
         class="fa fa-play playing"
         aria-hidden="true"
         :style="{ color: theme }"
-        v-if="music.id === item.id"></i>
+        v-if="music.id == item.id"></i>
       <span class="name">{{ item.name }}</span>
       <span class="songer">{{ item.songer }}</span>
       <span class="time">{{ item.time }}</span>

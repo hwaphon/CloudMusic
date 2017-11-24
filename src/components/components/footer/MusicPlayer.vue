@@ -27,7 +27,9 @@
     <MusicPlayerProgress></MusicPlayerProgress>
     <MusicPlayerVolumn></MusicPlayerVolumn>
     <div class="player-list">
-      <i class="fa fa-list-ul" aria-hidden="true" @click="showList = !showList"></i>
+      <img :src="PLAY[playingSettings.type - 1]" alt="" @click="togglePlayType">
+      <img :src="LAYER" alt="">
+      <i class="fa fa-file-text-o" aria-hidden="true" @click="showList = !showList"></i>
     </div>
     <MusicList v-if="showList"></MusicList>
   </div>
@@ -39,6 +41,7 @@
     import MusicPlayerVolumn from './MusicPlayerVolumn.vue'
     import MusicList from './MusicList.vue'
     import Type from '../../../const/Type'
+    import { PLAY, LAYER } from '../../../const/Player'
     export default {
       computed: {
         ...mapState([
@@ -63,7 +66,9 @@
       data () {
         return {
           player: '',
-          showList: false
+          showList: false,
+          PLAY: PLAY,
+          LAYER: LAYER
         }
       },
       methods: {
@@ -127,6 +132,20 @@
         },
         updateMusic (index) {
           this.$store.dispatch('updateMusic', this.musicQueue[index])
+        },
+        togglePlayType () {
+          if (this.playingSettings.type === Type.ORDER) {
+            this.changePlayType(Type.SINGLE)
+          } else if (this.playingSettings.type === Type.SINGLE) {
+            this.changePlayType(Type.LOOP)
+          } else if (this.playingSettings.type === Type.LOOP) {
+            this.changePlayType(Type.RANDOM)
+          } else if (this.playingSettings.type === Type.RANDOM) {
+            this.changePlayType(Type.ORDER)
+          }
+        },
+        changePlayType (type) {
+          this.$store.dispatch('updatePlayingSettings', { type })
         }
       },
       watch: {

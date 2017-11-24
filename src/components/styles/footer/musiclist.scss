@@ -10,7 +10,8 @@
 }
 
 .musiclist-item {
-  padding: 0 28px;
+  padding-left: 35px;
+  padding-right: 24px;
   font-weight: lighter;
   font-size: 13px;
   height: 28px;
@@ -20,6 +21,7 @@
   color: #444444;
   align-items: center;
   cursor: default;
+  position: relative;
 }
 
 .musiclist-item:nth-child(odd) {
@@ -41,5 +43,6 @@
 
 .playing {
   font-size: 12px;
-  margin-right: 14px;
+  position: absolute;
+  left: 12px;
 }
