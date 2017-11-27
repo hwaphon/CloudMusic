@@ -1,0 +1,66 @@
+.gnow-music {
+  position: fixed;
+  bottom: 50px;
+  left: 0px;
+  width: 196px;
+  height: 54px;
+  border-top: 1px solid #dcdcdc;
+  padding: 0 4px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.gnow-music-info, .gnow-music-icon {
+  height: 100%;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.gnow-music-info {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-left: 6px;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 1 0px;
+}
+
+.gnow-music-song, .gnow-music-songer {
+  width: 112px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gnow-music-song {
+  font-size: 14px;
+  color: #444444;
+  margin-bottom: 4px;
+}
+
+.gnow-music-songer {
+  font-size: 12px;
+  color: #6c6c63;
+}
+
+.gnow-music-icon {
+  display: flex;
+  flex-flow: column;
+  padding-top: 10px;
+  margin-right: 10px;
+}
+
+i {
+  color: #676769;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}

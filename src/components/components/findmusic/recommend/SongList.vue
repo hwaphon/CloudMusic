@@ -21,6 +21,7 @@
       :song="item.name"
       :index="index + 1"
       :id="item.id"
+      :picUrl="item.album.picUrl"
       :album="item.album.name"
       :time="item.duration"
       :songer="item.artists"></SongListItem>

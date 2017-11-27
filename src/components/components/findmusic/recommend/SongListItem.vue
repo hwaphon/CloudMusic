@@ -26,7 +26,8 @@
         song: { type: String, default: '' },
         songer: { type: Array, default () { return [] } },
         album: { type: String, default: '' },
-        time: { type: Number | String, default: '' }
+        time: { type: Number | String, default: '' },
+        picUrl: { type: String, default: '' }
       },
       computed: {
         finalIndex () {
@@ -49,7 +50,8 @@
               name: this.song,
               id: this.id,
               songer: this.finalSonger,
-              time: this.finalTime
+              time: this.finalTime,
+              picUrl: this.picUrl
             })
         }
       }

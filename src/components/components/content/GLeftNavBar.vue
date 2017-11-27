@@ -2,15 +2,18 @@
   <div class="gleft-navbar">
     <GMenu :title="recommend_title" :items="recommend_items"></GMenu>
     <GMenu :title="music_title" :items="music_items" class="gmusic-menu"></GMenu>
+    <GNowMusic></GNowMusic>
   </div>
 </template>
 
 <script>
     import GMenu from './menu/GMenu.vue'
     import Menu from '../../../const/Menu'
+    import GNowMusic from './GNowMusic.vue'
     export default {
       components: {
-        GMenu
+        GMenu,
+        GNowMusic
       },
       data () {
         return {
