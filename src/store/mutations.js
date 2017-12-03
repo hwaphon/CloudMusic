@@ -47,7 +47,11 @@ const mutations = {
     state.playing = value
   },
   UPDATEMUSICQUEUE (state, value) {
-    state.musicQueue.push(value)
+    let musicId = _.pluck(state.musicQueue, 'id')
+    let result = _.contains(musicId, value.id)
+    if (!result) {
+      state.musicQueue.push(value)
+    }
   },
   UPDATEPLAYINGSETTINGS (state, value) {
     state.playingSettings = _.extend(state.playingSettings, value)
