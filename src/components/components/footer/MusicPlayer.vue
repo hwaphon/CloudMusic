@@ -2,6 +2,7 @@
   <div class="musicplayer">
     <div class="player-control">
       <div class="player-backward control-container"
+           @click="playBefore"
            :style="{ backgroundColor: theme }">
         <i class="fa fa-step-backward" aria-hidden="true"></i>
       </div>
@@ -12,6 +13,7 @@
         <i class="fa fa-play" aria-hidden="true" v-if="!playing"></i>
       </div>
       <div class="player-forward control-container"
+           @click="play"
            :style="{ backgroundColor: theme }">
         <i class="fa fa-step-forward" aria-hidden="true"></i>
       </div>
@@ -27,7 +29,7 @@
     <MusicPlayerProgress @onUpdate="updateCurrentTime"></MusicPlayerProgress>
     <MusicPlayerVolumn></MusicPlayerVolumn>
     <div class="player-list">
-      <img :src="PLAY[playingSettings.type - 1]" alt="" @click="togglePlayType">
+      <img :src="PLAY[playingSettings.type - 1]" alt="" @click="togglePlayType" :title="playerTips">
       <img :src="LAYER" alt="">
       <i class="fa fa-file-text-o" aria-hidden="true" @click="showList = !showList"></i>
     </div>
@@ -56,6 +58,17 @@
         },
         currentTime () {
           return this.player.currentTime
+        },
+        playerTips () {
+          if (this.playingSettings.type === Type.ORDER) {
+            return '顺序播放'
+          } else if (this.playingSettings.type === Type.RANDOM) {
+            return '随机播放'
+          } else if (this.playingSettings.type === Type.LOOP) {
+            return '列表循环'
+          } else if (this.playingSettings.type === Type.SINGLE) {
+            return '单曲循环'
+          }
         }
       },
       components: {
@@ -94,6 +107,10 @@
         },
         play () {
           this.playNextMusic()
+          this.preparePlay()
+        },
+        preparePlay () {
+          console.log(this.playingSettings.index)
           this.updateMusic(this.playingSettings.index)
           this.$store.dispatch('updatePlaying', true)
           this.player.addEventListener('canplay', () => {
@@ -107,6 +124,16 @@
         },
         timeupdate () {
           this.$store.dispatch('updateMusic', { currentTime: Math.round(this.player.currentTime) })
+        },
+        playBefore () {
+          let index
+          if (this.playingSettings.index === 0) {
+            index = this.musicQueue.length - 1
+          } else {
+            index = this.playingSettings.index - 1
+          }
+          this.updateIndex(index)
+          this.preparePlay()
         },
         playNextMusic () {
           if (Type.ORDER === this.playingSettings.type) {
@@ -125,6 +152,10 @@
             }
             this.updateIndex(index)
           } else if (Type.SINGLE === this.playingSettings.type) {
+            this.updateCurrentTime(0)
+            setTimeout(() => {
+              this.player.play()
+            }, 1500)
           }
         },
         updateIndex (index) {
@@ -150,13 +181,6 @@
         updateCurrentTime (time) {
           this.player.currentTime = time
           this.$store.dispatch('updateMusic', { currentTime: time })
-        }
-      },
-      watch: {
-        playing (value) {
-          if (value) {
-            this.play()
-          }
         }
       },
       mounted () {
