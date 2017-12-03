@@ -27,7 +27,7 @@
       @timeupdate="timeupdate">
     </audio>
     <MusicPlayerProgress @onUpdate="updateCurrentTime"></MusicPlayerProgress>
-    <MusicPlayerVolumn></MusicPlayerVolumn>
+    <MusicPlayerVolumn @onUpdate="updateVolumn"></MusicPlayerVolumn>
     <div class="player-list">
       <img :src="PLAY[playingSettings.type - 1]" alt="" @click="togglePlayType" :title="playerTips">
       <img :src="LAYER" alt="">
@@ -110,7 +110,6 @@
           this.preparePlay()
         },
         preparePlay () {
-          console.log(this.playingSettings.index)
           this.updateMusic(this.playingSettings.index)
           this.$store.dispatch('updatePlaying', true)
           this.player.addEventListener('canplay', () => {
@@ -181,6 +180,13 @@
         updateCurrentTime (time) {
           this.player.currentTime = time
           this.$store.dispatch('updateMusic', { currentTime: time })
+        },
+        updateVolumn (volumn) {
+          if (volumn <= 0.05) {
+            volumn = 0
+          }
+          this.player.volume = volumn
+          this.$store.dispatch('updateMusic', { volumn })
         }
       },
       mounted () {

@@ -14,6 +14,7 @@
 </template>
 
 <script>
+    import Event from '../../../const/Event'
     import { mapState } from 'vuex'
     export default {
       computed: {
@@ -30,10 +31,11 @@
       },
       methods: {
         offHandler () {
-          this.$store.dispatch('updateMusic', { volumn: 0 })
+          this.$emit(Event.UPDATE, 0)
         },
         progressHandler (e) {
-          console.log(e)
+          let result = Math.round(e.offsetX * 100 / 90) / 100
+          this.$emit(Event.UPDATE, result)
         }
       }
     }
