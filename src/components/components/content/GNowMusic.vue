@@ -1,5 +1,5 @@
 <template>
-  <div class="gnow-music">
+  <div class="gnow-music" v-if="music.src">
     <img :src="music.picUrl" alt="">
     <div class="gnow-music-info">
       <span class="gnow-music-song">{{ music.name }}</span>

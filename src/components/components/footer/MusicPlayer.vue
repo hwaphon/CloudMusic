@@ -24,7 +24,7 @@
       @ended="endHandler"
       @timeupdate="timeupdate">
     </audio>
-    <MusicPlayerProgress></MusicPlayerProgress>
+    <MusicPlayerProgress @onUpdate="updateCurrentTime"></MusicPlayerProgress>
     <MusicPlayerVolumn></MusicPlayerVolumn>
     <div class="player-list">
       <img :src="PLAY[playingSettings.type - 1]" alt="" @click="togglePlayType">
@@ -146,6 +146,10 @@
         },
         changePlayType (type) {
           this.$store.dispatch('updatePlayingSettings', { type })
+        },
+        updateCurrentTime (time) {
+          this.player.currentTime = time
+          this.$store.dispatch('updateMusic', { currentTime: time })
         }
       },
       watch: {
